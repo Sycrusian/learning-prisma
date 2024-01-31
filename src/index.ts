@@ -1,20 +1,26 @@
-import { StudentServices } from "./services/student.service";
+import { StudentServices } from "./services/student.services";
+import { StudentInfoServices } from "./services/studentInfo.services";
 
 const studentServices = new StudentServices;
+const studentInfoServices = new StudentInfoServices;
 
 const testCreate = async () => {
-  const singleResponse = await studentServices.create({
-    name: "Dirk Shelsher",
-    email: "dshelsher@mail.com"
+  const singleResponse = await studentInfoServices.create({
+    phone: "555-5555",
+    address: "Pirate Street, 55",
+    studentId: 1
   });
 
-  const manyResponse = await studentServices.createMany([
+  const manyResponse = await studentInfoServices.createMany([
     {
-      name: "Sarah Blade",
-      email: "sblade@mail.com"
+      phone: "777-7777",
+      address: "Blade Street, 77",
+      studentId: 2
     },
     {
-      name: "Jade Empire"
+      phone: "222-2222",
+      address: "Jade Street, 22",
+      studentId: 3
     }
   ]);
 
@@ -22,3 +28,15 @@ const testCreate = async () => {
   console.log(manyResponse);
 }
 
+const testRead = async () => {
+  const getOne = await studentServices.getStudent(1);
+  const getSearch = await studentServices.searchStudents("jade");
+  const getAll = await studentServices.getStudents();
+
+  console.log(getOne);
+  console.log(getSearch);
+  console.log(getAll);
+}
+
+//testRead();
+//testCreate();
