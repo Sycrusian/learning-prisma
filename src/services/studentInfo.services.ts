@@ -1,5 +1,5 @@
 import { prisma } from "../database/prisma";
-import { TCreateStudentInfo } from "../interfaces/studentInfo.interface";
+import { TCreateStudentInfo, TUpdateStudentInfo } from "../interfaces/studentInfo.interface";
 
 export class StudentInfoServices {
   async create(studentInfo: TCreateStudentInfo) {
@@ -8,5 +8,12 @@ export class StudentInfoServices {
 
   async createMany(studentInfos: TCreateStudentInfo[]) {
     return await prisma.studentInfo.createMany({data: studentInfos});
+  }
+
+  async update(studentId: number, data: TUpdateStudentInfo) {
+    return await prisma.studentInfo.update({
+      where: { studentId: studentId },
+      data
+    });
   }
 }

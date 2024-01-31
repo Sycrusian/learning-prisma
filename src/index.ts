@@ -38,5 +38,14 @@ const testRead = async () => {
   console.log(getAll);
 }
 
-//testRead();
+const testUpdate = async () => {
+  const student = await studentServices.update(3, { email: "jempire@mail.com" });
+  const studentInfo = await studentInfoServices.update(3, { phone: "333-3333", address: "Jade Street, 1234" });
+
+  console.log(student);
+  console.log(studentInfo);
+}
+
 //testCreate();
+//testRead();
+//testUpdate();

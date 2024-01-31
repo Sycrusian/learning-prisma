@@ -6,3 +6,5 @@ export interface IStudentInfo {
 }
 
 export type TCreateStudentInfo = Omit<IStudentInfo, "id">;
+
+export type TUpdateStudentInfo = Partial<TCreateStudentInfo>;

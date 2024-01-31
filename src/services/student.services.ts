@@ -1,5 +1,5 @@
 import { prisma } from "../database/prisma";
-import { TCreateStudent } from "../interfaces/student.interface";
+import { TCreateStudent, TUpdateStudent } from "../interfaces/student.interface";
 
 export class StudentServices {
   async create(student: TCreateStudent) {
@@ -26,5 +26,12 @@ export class StudentServices {
 
   async getStudents() {
     return await prisma.student.findMany({ include: { studentInfo: true } });
+  }
+
+  async update(studentId: number, data: TUpdateStudent) {
+    return await prisma.student.update({
+      where: { id: studentId },
+      data
+    });
   }
 }

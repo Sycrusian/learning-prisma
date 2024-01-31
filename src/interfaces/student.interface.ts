@@ -5,3 +5,5 @@ export interface IStudent {
 }
 
 export type TCreateStudent = Omit<IStudent, "id">;
+
+export type TUpdateStudent = Partial<TCreateStudent>;
