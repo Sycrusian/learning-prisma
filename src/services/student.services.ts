@@ -34,4 +34,8 @@ export class StudentServices {
       data
     });
   }
+
+  async delete(studentId: number) {
+    return await prisma.student.delete({ where: { id: studentId }});
+  }
 }
