@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "tsnd --respawn --cls --rs src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,9 +12,10 @@
   "license": "ISC",
   "devDependencies": {
     "prisma": "^5.8.1",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@prisma/client": "^5.8.1"
+    "@prisma/client": "^5.9.0"
   }
 }
